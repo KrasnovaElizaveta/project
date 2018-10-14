@@ -8,9 +8,8 @@
 <body ng-controller="jsController">
 <div class="container">
     <div class="container_emails-editor">
-        <h1>Share "Board name" with others</h1>
-        <emails-editor emails="emails" on-emails-updated="onEmailsUpdated()"></emails-editor>
-        <!--<emails-editor emails="emails" on-emails-updated="onEmailsUpdated()"></emails-editor>-->
+        <h1>Share <b>Board name</b> with others</h1>
+        <emails-editor emails="'emails"></emails-editor>
     </div>
     <div class="buttons">
         <button class="addEmail" ng-click="addEmails()">Add email</button>

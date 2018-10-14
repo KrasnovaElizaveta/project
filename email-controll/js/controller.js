@@ -23,12 +23,12 @@ myApp
         return {
             template:
                 `<div class="emails-editor">
-                <div class="archive" ng-repeat="item in emailBox.items" ng-class="item.error==true ? 'error':''">
+                <div class="box" ng-repeat="item in emailBox.items" ng-class="item.error==true ? 'error':''">
                     <span ng-bind="item.email"></span>
                     <input class="checkbox" type="checkbox" ng-model="item.play" />
                     <label for="checkbox" ng-click="deleteEmails(item)"></label>
                 </div> 
-                <input class="input" type="text" ng-model="emailText" ng-keyup="keyUp()" ng-blur="inputBlur()" placeholder="add more people ..." />
+                <input class="input" type="text" placeholder="add more people ..." ng-model="emailText" ng-keyup="keyUp()" ng-blur="inputBlur()"  />
             </div>`,
         }
     })
@@ -36,7 +36,7 @@ myApp
         $scope.emailBox = model
 
         $scope.deleteEmails = text => {
-            for (var i = 0; i < $scope.emailBox.items.length; i++) {
+            for (let i = 0; i < $scope.emailBox.items.length; i++) {
                 if (text.email === $scope.emailBox.items[i].email)
                     $scope.emailBox.items.splice(i, 1)
             }
@@ -55,7 +55,7 @@ myApp
             let str = "",
                 strRandom = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 
-            for (let i = 0; i < Math.random() * strRandom.length; i++)
+            for (let i = 0 ; i < 7; i++)
                 str += strRandom.charAt(Math.floor(Math.random() * strRandom.length))
 
             return str + "@gmail.com"
